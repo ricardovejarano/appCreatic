@@ -1,8 +1,10 @@
-package com.example.ricardo.pruebatecnicaareamovil
+package com.example.ricardo.pruebatecnicaareamovil.ui.splash
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.ricardo.pruebatecnicaareamovil.R
+import com.example.ricardo.pruebatecnicaareamovil.ui.main.MainActivity
 import org.jetbrains.anko.startActivity
 
 class SplashActivity : AppCompatActivity() {

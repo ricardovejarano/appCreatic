@@ -1,7 +1,8 @@
-package com.example.ricardo.pruebatecnicaareamovil
+package com.example.ricardo.pruebatecnicaareamovil.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ricardo.pruebatecnicaareamovil.R
 import com.jakewharton.rxbinding2.view.clicks
 import kotlinx.android.synthetic.main.activity_main.*
 
