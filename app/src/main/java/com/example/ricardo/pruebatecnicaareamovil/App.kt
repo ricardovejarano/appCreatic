@@ -1,15 +1,26 @@
 package com.example.ricardo.pruebatecnicaareamovil
 
+import android.app.Activity
 import android.support.multidex.MultiDexApplication
 import com.example.ricardo.pruebatecnicaareamovil.data.api.ApiClient
+import com.example.ricardo.pruebatecnicaareamovil.di.AppInjector
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
 import okhttp3.HttpUrl
+import javax.inject.Inject
 
-class App : MultiDexApplication() {
+class App : MultiDexApplication(), HasActivityInjector {
+
+    @Inject
+    lateinit var injector: DispatchingAndroidInjector<Activity>
+
+    override fun activityInjector(): AndroidInjector<Activity> = injector
 
     override fun onCreate() {
         super.onCreate()
-
-        ApiClient.init(HttpUrl.parse("https://api.github.com/users")!!)
+        AppInjector.init(this)
+        ApiClient.init(HttpUrl.parse(getString(R.string.url))!!)
     }
 
 

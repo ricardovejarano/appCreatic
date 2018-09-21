@@ -8,6 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
+    const val API_QUERY = "/users"
+
     lateinit var client: Retrofit
 
     fun init(url: HttpUrl) {

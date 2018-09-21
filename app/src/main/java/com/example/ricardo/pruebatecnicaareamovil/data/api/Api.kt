@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface Api {
-    @GET("/{username}")
-    fun getAllDatasets(@Path("username")username: String): Observable<User>
+    @GET("${ApiClient.API_QUERY}/{username}")
+    fun getUser(@Path("username")username: String): Observable<User>
 }
