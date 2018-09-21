@@ -7,6 +7,7 @@ import com.example.ricardo.pruebatecnicaareamovil.di.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import io.realm.Realm
 import okhttp3.HttpUrl
 import javax.inject.Inject
 
@@ -21,6 +22,7 @@ class App : MultiDexApplication(), HasActivityInjector {
         super.onCreate()
         AppInjector.init(this)
         ApiClient.init(HttpUrl.parse(getString(R.string.url))!!)
+        Realm.init(this)
     }
 
 

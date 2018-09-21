@@ -32,7 +32,6 @@
                 android:id="@+id/mainEdtTxtSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ricardovejarano"
                 android:hint="@string/username" />
         </android.support.design.widget.TextInputLayout>
 
@@ -40,9 +39,9 @@
             android:id="@+id/mainBtnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/small"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="@dimen/small"
-            android:layout_marginRight="@dimen/small"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="@dimen/small"
             android:layout_marginTop="@dimen/small"
             android:text="@string/search"
@@ -72,6 +71,8 @@
             android:layout_marginEnd="@dimen/medium"
             android:layout_marginStart="@dimen/medium"
             android:layout_marginTop="@dimen/medium"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,27 +85,44 @@
                 <ImageView
                     android:id="@+id/profileRibbon"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_card_view"
-                    android:layout_marginEnd="@dimen/small"
-                    android:layout_marginStart="@dimen/small"
-                    android:layout_marginTop="@dimen/small"
+                    android:layout_height="160dp"
                     android:scaleType="fitXY"
+                    android:background="#333"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/userImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_card_view"
-                    android:layout_marginEnd="@dimen/small"
-                    android:layout_marginStart="@dimen/small"
-                    android:layout_marginTop="@dimen/small"
-                    app:loadImg="@{user.avatar_url}"
+                    android:layout_width="132dp"
+                    android:layout_height="132dp"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#fff"
+                    civ
+
+                    app:layout_constraintEnd_toEndOf="@+id/profileRibbon"
+                    app:layout_constraintStart_toStartOf="@+id/profileRibbon"
+                    app:layout_constraintTop_toTopOf="@+id/profileRibbon"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileRibbon"
+                    app:loadImg="@{user.avatar_url}"/>
+
+                <TextView
+                    android:id="@+id/mainTxtVwUsername"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="@dimen/mediumSp"
+                    android:gravity="center"
+                    android:text='@{user.name ?? ""}'
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:background="@color/cardview_dark_background" />
+                    app:layout_constraintTop_toBottomOf="@+id/userImg" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
