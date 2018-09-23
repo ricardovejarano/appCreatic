@@ -146,6 +146,7 @@
             android:layout_marginStart="@dimen/small"
             android:layout_marginTop="@dimen/small"
             android:background="@color/colorWhite"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/clear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
