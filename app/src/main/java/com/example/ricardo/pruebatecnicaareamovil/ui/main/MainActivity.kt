@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity(), Injectable {
         }
     }
 
+    // Bluri
     fun loadBluri() {
         val target = object : Target {
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
