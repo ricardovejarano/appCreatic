@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), Injectable {
             binding.user = user
             loadBluri()
         }
-
     }
 
     fun loadBluri() {
@@ -86,6 +85,11 @@ class MainActivity : AppCompatActivity(), Injectable {
     override fun onResume() {
         super.onResume()
 
+        mainBtnClear.clicks()
+                .subscribe {
+                    mainEdtTxtSearch.setText("")
+                }
+
         dis add mainBtnSearch.clicks()
                 .flatMap {
                     username = mainEdtTxtSearch.text()
@@ -98,11 +102,11 @@ class MainActivity : AppCompatActivity(), Injectable {
                             realm.executeTransactionAsync({realm ->
                                 realm.deleteAll()
                                 val newUser = realm.createObject<UserRealm>(0)
-                                newUser.name = user.name ?: ""
+                                newUser.name = user.name ?: "No hay nombre registrado"
                                 newUser.url = user.avatar_url ?: ""
                             },{
                                 loadBluri()
-                                toast("exito")
+                                // toast("exito")
                             },{
                                 toast(it.message!!)
                             })

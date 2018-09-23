@@ -14,15 +14,20 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/medium"
-            android:layout_marginLeft="@dimen/medium"
-            android:layout_marginRight="@dimen/medium"
-            android:layout_marginStart="@dimen/medium"
-            android:layout_marginTop="@dimen/small"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,20 +37,24 @@
                 android:id="@+id/mainEdtTxtSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/username" />
+                android:hint="@string/username"
+                android:textColorHint="@color/colorPrimaryDark" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/mainBtnSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="@dimen/small"
+            android:layout_marginLeft="24dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="@dimen/small"
-            android:layout_marginTop="@dimen/small"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorWhite"
             android:text="@string/search"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mainBtnClear"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
@@ -57,7 +66,9 @@
             android:layout_marginLeft="@dimen/small"
             android:layout_marginRight="@dimen/small"
             android:layout_marginStart="@dimen/small"
-            android:layout_marginTop="@dimen/large"
+            android:layout_marginTop="64dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/search_github_user"
             android:textSize="@dimen/title"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,14 +77,14 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero_dp"
-            android:layout_marginBottom="@dimen/medium"
-            android:layout_marginEnd="@dimen/medium"
-            android:layout_marginStart="@dimen/medium"
-            android:layout_marginTop="@dimen/medium"
+            android:layout_height="0dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainBtnSearch">
@@ -86,8 +97,9 @@
                     android:id="@+id/profileRibbon"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:scaleType="fitXY"
                     android:background="#333"
+                    android:contentDescription="@string/username"
+                    android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -96,35 +108,49 @@
                     android:id="@+id/userImg"
                     android:layout_width="132dp"
                     android:layout_height="132dp"
-                    app:civ_border_width="2dp"
                     app:civ_border_color="#fff"
-                    civ
-
+                    app:civ_border_width="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileRibbon"
                     app:layout_constraintEnd_toEndOf="@+id/profileRibbon"
                     app:layout_constraintStart_toStartOf="@+id/profileRibbon"
                     app:layout_constraintTop_toTopOf="@+id/profileRibbon"
-                    app:layout_constraintBottom_toBottomOf="@+id/profileRibbon"
-                    app:loadImg="@{user.avatar_url}"/>
+                    app:loadImg="@{user.avatar_url}" />
 
                 <TextView
                     android:id="@+id/mainTxtVwUsername"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="32dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:textSize="@dimen/mediumSp"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text='@{user.name ?? ""}'
+                    android:text='@{user.name ?? @string/emptyUsername}'
+                    android:textSize="@dimen/mediumSp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/userImg" />
+                    app:layout_constraintTop_toBottomOf="@+id/profileRibbon" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/mainBtnClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorWhite"
+            android:text="@string/clear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/mainBtnSearch"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
