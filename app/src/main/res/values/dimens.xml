@@ -3,8 +3,15 @@
     <dimen name="title">25sp</dimen>
     <dimen name="small">8dp</dimen>
     <dimen name="medium">16dp</dimen>
+    <dimen name="mediumLarge">24dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
+    <dimen name="border_image">2dp</dimen>
     <dimen name="large">32dp</dimen>
+    <dimen name="cardRadious">10dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="extraLarge">64dp</dimen>
     <dimen name="height_card_view">180dp</dimen>
+    <dimen name="height_image_view">160dp</dimen>
+    <dimen name="height_circle_image_view">132dp</dimen>
     <dimen name="mediumSp">16sp</dimen>
 </resources>
