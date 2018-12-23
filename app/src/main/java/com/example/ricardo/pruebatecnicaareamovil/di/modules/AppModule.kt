@@ -18,6 +18,6 @@ class AppModule{
     @Singleton
     @Provides
     fun providesPreferences(application: Application): SharedPreferences =
-            application.getSharedPreferences("Area_Movil", 0)
+            application.getSharedPreferences("app_creatic", 0)
 
 }
